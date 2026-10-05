@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample PASS - Cumple todas las reglas</title>
+  <meta name="description" content="Página de prueba que cumple todas las reglas de la suite de auditoría.">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    /* Tipografía autorizada (Montserrat / Roboto / sans-serif) */
+    body {
+      font-family: "Montserrat", "Roboto", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1A1A1A;
+      background: #FFFFFF;
+    }
+    button, a, nav, input { font-family: inherit; }
+
+    header { background: #00205B; color: #FFFFFF; padding: 16px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    header .brand { font-size: 20px; font-weight: 700; margin: 0; color: #FFFFFF; }
+    .menu-toggle { font-size: 16px; padding: 8px 16px; background: #C8102E; color: #FFFFFF; border: 0; border-radius: 8px; cursor: pointer; }
+    nav { color: #FFFFFF; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; flex-wrap: wrap; }
+    nav a { font-size: 16px; color: #FFFFFF; text-decoration: underline; }
+    nav[hidden] { display: none; }
+
+    main { max-width: 960px; margin: 0 auto; padding: 24px; color: #1A1A1A; }
+    h1 { font-size: 32px; color: #00205B; margin-top: 0; }
+    h2 { font-size: 24px; color: #00205B; }
+    p { font-size: 16px; color: #1A1A1A; }
+    a.btn { display: inline-block; padding: 10px 20px; background: #C8102E; color: #FFFFFF; border-radius: 8px; text-decoration: none; font-size: 16px; }
+    img { max-width: 100%; height: auto; display: block; }
+    label { display: block; margin-bottom: 4px; font-size: 16px; }
+    input { font-size: 16px; padding: 8px; border: 1px solid #333333; border-radius: 4px; max-width: 100%; }
+    button.primary { font-size: 16px; padding: 10px 20px; background: #00205B; color: #FFFFFF; border: 0; border-radius: 8px; cursor: pointer; }
+
+    footer { background: #F2F4F7; color: #333333; padding: 16px 24px; font-size: 16px; }
+    footer a { color: #00205B; }
+    @media (max-width: 600px) { header { padding: 12px 16px; } main { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">Menú</button>
+    <p class="brand">Sitio de Ejemplo</p>
+    <nav id="main-nav" aria-labelledby="menu-toggle">
+      <ul>
+        <li><a href="https://example.com/inicio">Inicio</a></li>
+        <li><a href="https://example.com/servicios">Servicios</a></li>
+        <li><a href="https://example.com/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <h1>Página que cumple todas las reglas</h1>
+    <p>Este documento usa tipografías autorizadas, tamaños mínimos, colores de la paleta institucional, imágenes livianas con texto alternativo y enlaces válidos.</p>
+
+    <section aria-labelledby="sec-imagen">
+      <h2 id="sec-imagen">Imagen optimizada</h2>
+      <img src="pass-logo.svg" alt="Logotipo institucional con círculo azul" width="200" height="200">
+    </section>
+
+    <section aria-labelledby="sec-form">
+      <h2 id="sec-form">Formulario accesible</h2>
+      <p>Complete el siguiente campo con su nombre completo para continuar con el proceso.</p>
+      <form action="https://example.com/enviar" method="post">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" autocomplete="name">
+        <p><button type="submit" class="primary">Enviar</button></p>
+      </form>
+      <p><a class="btn" href="https://example.com/mas-informacion">Más información</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p style="margin:0;font-size:16px;color:#333333;">© 2026 Sitio de Ejemplo · <a href="https://example.com/privacidad">Política de privacidad</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("menu-toggle");
+      var nav = document.getElementById("main-nav");
+      btn.addEventListener("click", function () {
+        var expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        btn.setAttribute("aria-label", expanded ? "Abrir menú" : "Cerrar menú");
+        nav.classList.toggle("open", !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

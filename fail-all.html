@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- Intencional: zoom deshabilitado (axe meta-viewport) y sin <title> ni lang -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    /* Tipografía NO autorizada */
+    body { font-family: "Comic Sans MS", "Papyrus", cursive; font-size: 16px; color: #FF00FF; background: #FFFFFF; margin: 0; }
+    button, a, nav, input { font-family: "Papyrus", fantasy; }
+
+    /* Colores fuera de la paleta */
+    header { background: #FFEE00; color: #FF00FF; padding: 12px; }
+    nav { color: #00FF99; }
+    nav a { font-size: 10px; color: #CCCCCC; }          /* tamaño insuficiente + bajo contraste */
+    h1 { color: #FF6600; font-size: 28px; }
+    h2 { font-size: 12px; color: #99FF00; }              /* heading muy pequeño */
+    main { color: #FF00FF; padding: 12px; }
+    p { font-size: 11px; color: #BBBBBB; }               /* body pequeño + bajo contraste */
+    button.mini { font-size: 9px; background: #00FFFF; color: #AAFFFF; }  /* botón pequeño + contraste */
+    a.btn { background: #66FF00; color: #99FF99; padding: 6px; font-size: 12px; }
+    footer { background: #FFAA00; color: #FF00AA; }
+
+    /* Desbordamiento horizontal */
+    .ancho-fijo { width: 2400px; height: 40px; background: #FF0000; }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Botón de menú SIN aria-expanded (y sin nombre accesible) -->
+    <button type="button" aria-haspopup="true"></button>
+    <nav>
+      <!-- Enlaces vacíos y con href="#" -->
+      <a href="#">Inicio</a>
+      <a href="javascript:void(0)">Servicios</a>
+      <a href="#"></a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Página que incumple todas las reglas</h1>
+    <h4>Salto de nivel de encabezado</h4>
+    <h2>Encabezado diminuto</h2>
+    <p>Este párrafo usa un tamaño de fuente demasiado pequeño y un color de bajo contraste.</p>
+
+    <!-- Imagen BMP pesada (>300 KB), formato no permitido y sin alt -->
+    <img src="fail-big-image.bmp" width="400" height="376">
+
+    <!-- Campo sin etiqueta -->
+    <input type="text" placeholder="Nombre">
+
+    <!-- IDs duplicados -->
+    <div id="dup">uno</div>
+    <div id="dup">dos</div>
+
+    <button class="mini" type="button">Aceptar</button>
+    <a class="btn" href="#">Más información</a>
+
+    <div class="ancho-fijo"></div>
+  </main>
+
+  <footer>
+    <p>© 2026 Pie de página sin estructura accesible.</p>
+  </footer>
+</body>
+</html>
